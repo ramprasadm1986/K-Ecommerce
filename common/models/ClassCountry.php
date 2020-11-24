@@ -43,7 +43,6 @@ class ClassCountry extends \yii\db\ActiveRecord
             [['iso3'], 'string', 'max' => 3],
             [['iso2'], 'string', 'max' => 2],
             [['phonecode', 'currency'], 'string', 'max' => 255],
-            [['emoji', 'emojiU'], 'string', 'max' => 191],
         ];
     }
 
@@ -59,8 +58,6 @@ class ClassCountry extends \yii\db\ActiveRecord
             'iso2' => 'Iso2',
             'phonecode' => 'Phonecode',
             'currency' => 'Currency',
-            'emoji' => 'Emoji',
-            'emojiU' => 'Emoji U',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

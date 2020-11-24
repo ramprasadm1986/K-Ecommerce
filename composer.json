@@ -39,7 +39,8 @@
         "kartik-v/yii2-mpdf": "^1.0",
         "yii2tech/spreadsheet": "^1.0",
         "ramprasadm1986/yii2-pdfmerger": "1.0.2",
-        "ramprasadm1986/yii2-paypal": "^1.0"
+        "ramprasadm1986/yii2-paypal": "^1.0",
+        "bizley/migration": "^4.1"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

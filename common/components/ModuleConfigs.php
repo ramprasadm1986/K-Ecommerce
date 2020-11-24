@@ -6,6 +6,7 @@ use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
+use yii\db\Exception;
 
 
 use common\models\ClassModules;
@@ -32,19 +33,22 @@ class ModuleConfigs implements BootstrapInterface
         if ($modules === false) {
 
             $modules = [];
-            
-            $module_Data=ClassModules::find()->all();
-            
-            foreach($module_Data as $module){
-                $data=[];
+            try{
+                $module_Data=ClassModules::find()->all();
                 
-                $data['name']=$module->name;
-                $data['is_system']=$module->is_system;
-                $data['is_active']=$module->is_active;
-                
-                $modules[$module->code]= $data;
+                foreach($module_Data as $module){
+                    $data=[];
+                    
+                    $data['name']=$module->name;
+                    $data['is_system']=$module->is_system;
+                    $data['is_active']=$module->is_active;
+                    
+                    $modules[$module->code]= $data;
+                }
             }
-
+            catch(Exception $e){
+               $modules = []; 
+            }
           if (!YII_DEBUG) {
                 Yii::$app->cache->set(self::CACHE_ID, $modules);
             }
